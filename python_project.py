@@ -21,9 +21,9 @@ class Secondclass(Firstclass):
             count = 0
             for i in range(len(nnn)):
                 if re.fullmatch(user_input, nnn[i], re.M | re.I):
-                    txt1 = "The keyword is {0} {1} {2}\n ".format(nnn[i - 4],
+                    txt1 = "The keyword is {0} {1} {2}\n ".format(nnn[i - 1],
                                                                   nnn[i],
-                                                                  nnn[i + 4])
+                                                                  nnn[i + 1])
                     file_output.write(txt1)
                     count += 1
 
