@@ -1,6 +1,7 @@
 """========================================================================
 File Name           :   python_project.py
-File Description    :   This file illustrate usage of pyhton .iterates as many times as the user input
+File Description    :   This file illustrate usage of oops concept of python,
+                        iterates as many times as the user input
                         search the given keyword in input file and create file
                         if match found
 File created on     :   26 February, 2021
@@ -11,7 +12,10 @@ contact info        : arpita.kulkarni@ltts.com
 import re
 import os
 
+
 """-----------------------------SUPER CLASS---------------------------"""
+
+
 class Firstclass:
     def __init__(self):
         # constructor class to read no of keywords
@@ -23,7 +27,7 @@ class Firstclass:
             try:
                 string_name = "enter no of keywords to search:\n"
                 self.no_of_keyword = int(input(string_name))
-                flag = False # clear flag
+                flag = False       # clear flag
             except ValueError:
                 print("Please enter the correct input value")
 
@@ -34,6 +38,7 @@ class Firstclass:
         self.file_read_input = self.file_name.read()
         # declare count to count total keyword occurred
         self.count = 0
+
 
 class Secondclass(Firstclass):
     # second class is inherited from firstclass
