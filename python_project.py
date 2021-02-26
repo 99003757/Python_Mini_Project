@@ -61,6 +61,7 @@ class Secondclass(Firstclass):
 
 
 # ask user input to iterate
+
 no_of_keys = input("enter no of keywords to search:\n")
 s_object = Secondclass(no_of_keys)
 s_object.search_write_function()
