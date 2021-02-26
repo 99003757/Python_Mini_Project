@@ -45,7 +45,7 @@ class Secondclass(Firstclass):
         # loop executes no of times keyword want to search
         for ii in range(int(self.no_of_keyword)):
             # user input takes keyword
-            user_input = input("Enter the keyword:\n")
+            user_input = input("Enter the Keyword:\n")
             # split the input file into tuple
             input_split = self.file_read_input.split()
             # remove all character in tuple
