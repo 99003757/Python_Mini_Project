@@ -17,12 +17,18 @@ import os
 
 
 class Firstclass:
-    def __init__(self, no_of_keyword):
+    def __init__(self):
         # constructor class to read no of keywords
         # it also read input file
         # flag is to check for exception
-        self.no_of_keyword = no_of_keyword
-
+        self.flag = True
+        string_name = "enter no of keywords to search:\n"
+        self.no_of_keyword = input(string_name)
+        while self.flag:
+            if self.no_of_keyword.isdigit():
+                self.flag = False
+            else:
+                self.no_of_keyword = input("Error.! accept only +ve integer\n")
 
 # function to read file from input txt
     def function_read(self):
@@ -43,7 +49,7 @@ class Secondclass(Firstclass):
             # split the input file into tuple
             input_split = self.file_read_input.split()
             # remove all character in tuple
-            splited = re.split(r'\W.;/+', str(input_split))
+            splited = re.split(r'\W+', str(input_split))
             # output file format as per user input
             filename = "{}.txt".format(user_input)
             file_output = open(filename, 'w')
@@ -51,13 +57,15 @@ class Secondclass(Firstclass):
             for i in range(len(splited)):
                 # match the given keyword in the input file
                 if re.fullmatch(user_input, splited[i], re.M | re.I):
-                    string = "The keyword is{0} {1} {2}\n"
-                    txt1 = string.format(splited[i - 1],
-                                         splited[i],
-                                         splited[i + 1])
-                    # if match found write
-                    file_output.write(txt1)
-                    count += 1
+                    if user_input.isalnum() or user_input.isdigit() or \
+                                               user_input.isalpha():
+                        string = "The keyword is {0} {1} {2}\n"
+                        txt1 = string.format(splited[i - 1],
+                                             splited[i],
+                                             splited[i + 1])
+                        # if match found write
+                        file_output.write(txt1)
+                        count += 1
 
             if count != 0:
                 file_output.write("Total count:" + str(count))
@@ -68,22 +76,9 @@ class Secondclass(Firstclass):
                     os.remove(filename)
 
 
-flag = True
-while flag:
-    # if Entered input is not digit throws an error
-    try:
-        string_name = "enter no of keywords to search:\n"
-        no_of_keyword = int(input(string_name))
-        if no_of_keyword < 0:
-            flag = True
-            print("Please enter the correct input value")
-        else:
-            # ask user input to iterate
-            # oject of second class created
-            s_object = Secondclass(no_of_keyword)
-            # call search write function to do the task
-            s_object.search_write_function()
-            s_object.file_name.close()
-            flag = False  # clear flag
-    except ValueError:
-        print("Please enter the correct input value")
+# ask user input to iterate
+# oject of second class created
+s_object = Secondclass()
+# call search write function to do the task
+s_object.search_write_function()
+s_object.file_name.close()
