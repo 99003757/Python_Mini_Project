@@ -21,12 +21,14 @@ class Secondclass(Firstclass):
             count = 0
             for i in range(len(nnn)):
                 if re.fullmatch(user_input, nnn[i], re.M | re.I):
-                    txt1 = "The occurrence of keyword is {0} {1} {2}\n ".format(nnn[i - 1], nnn[i], nnn[i + 1])
+                    txt1 = "The keyword is {0} {1} {2}\n ".format(nnn[i - 4],
+                                                                  nnn[i],
+                                                                  nnn[i + 4])
                     file_output.write(txt1)
                     count += 1
 
             if count != 0:
-                file_output.write("Total Occurrence of given keyword is: " + str(count))
+                file_output.write("Total count of keyword is: " + str(count))
             file_output.close()
             if count == 0:
                 print("Entered Keyword not found in the file\n")
